@@ -60,7 +60,35 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+<dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>fr.maetic</groupId>
+			<artifactId>model</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.maetic</groupId>
+			<artifactId>repository</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.maetic</groupId>
+			<artifactId>service</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.maetic</groupId>
+			<artifactId>mail</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.maetic</groupId>
+			<artifactId>Controller</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
 	<build>
 		<plugins>
 			<plugin>
