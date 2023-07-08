@@ -18,7 +18,7 @@
 		<module>model</module>
 		<module>service</module>
 		<module>repository</module>
-		<module>Controller</module>
+		<module>web</module>
 		<module>mail</module>
 	</modules>
 	<properties>
@@ -84,7 +84,7 @@
 		</dependency>
 		<dependency>
 			<groupId>fr.maetic</groupId>
-			<artifactId>Controller</artifactId>
+			<artifactId>web</artifactId>
 			<version>0.0.1</version>
 		</dependency>
 	</dependencies>
