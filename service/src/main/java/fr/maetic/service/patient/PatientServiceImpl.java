@@ -3,6 +3,7 @@ package fr.maetic.service.patient;
 
 import fr.maetic.dao.patient.PatientRepository;
 import fr.maetic.exception.PatientNotFoundException;
+import fr.maetic.mailing.service.EmailService;
 import fr.maetic.model.patient.Patient;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,7 @@ import java.util.stream.Stream;
 @Service
 public class PatientServiceImpl implements PatientService {
     private final PatientRepository patientRepository;
+    private final EmailService emailService;
 
     @Override
     public Patient save(Patient patient) {
@@ -113,11 +115,9 @@ public class PatientServiceImpl implements PatientService {
         Patient awa = new Patient(null, "SARR", "Awa", "0769697602", "senal@gmail.com", "rue des meuniers", "Montbert", "44140", "Gynéco", "Nicolas", "Test", "test", "Remi", LocalDate.of(1987, Month.JUNE, 12), false, null, null, LocalDate.of(1987, Month.JUNE, 12));
         Patient anna = new Patient(null, "SARR", "Anna", "0769697602", "anna@gmail.com", "rue des meuniers", "Montbert", "44140", "Gynéco", "Nicolas", "Test", "test", "Remi", LocalDate.of(1987, Month.JUNE, 12), false, null, null, LocalDate.of(1987, Month.JUNE, 12));
 
-
         patientRepository.saveAll(Stream.of(awa,anna).collect(Collectors.toList()));
     }
     public List<Patient> patientList(){
         return patientRepository.findAll();
-
     }
 }

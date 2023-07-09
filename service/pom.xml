@@ -21,6 +21,10 @@
         <groupId>fr.maetic</groupId>
         <artifactId>model</artifactId>
     </dependency>
+    <dependency>
+        <groupId>fr.maetic</groupId>
+        <artifactId>mail</artifactId>
+    </dependency>
 </dependencies>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
