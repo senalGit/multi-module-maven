@@ -23,7 +23,8 @@ public class AppMaetic {
     @Bean
     CommandLineRunner envoyerMail(EmailService emailService){
         return args -> {
-            emailService.sendSimpleMailMessage("SARR", "senalsarr@gmail.com", UUID.randomUUID().toString());
+           // emailService.sendSimpleMailMessageUserVerification("SARR", "senalsarr@gmail.com", UUID.randomUUID().toString());
+            emailService.sendSimpleMailMessage("SARR", "senalsarr@gmail.com", "Le service de message generique marche");
         };
     }
 }

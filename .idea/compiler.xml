@@ -12,6 +12,7 @@
         <module name="mail" />
         <module name="web" />
         <module name="service" />
+        <module name="securite" />
       </profile>
     </annotationProcessing>
   </component>
@@ -21,6 +22,7 @@
       <module name="mail" options="-parameters" />
       <module name="model" options="-parameters" />
       <module name="repository" options="-parameters" />
+      <module name="securite" options="-parameters" />
       <module name="service" options="-parameters" />
       <module name="web" options="-parameters" />
     </option>

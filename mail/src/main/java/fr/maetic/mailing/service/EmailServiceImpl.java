@@ -2,6 +2,7 @@ package fr.maetic.mailing.service;
 
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
@@ -12,11 +13,13 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 
-import static fr.maetic.mailing.config.EmailConfiguration.getEmailMessage;
+import static fr.maetic.mailing.config.EmailMessageConfig.getEmailMessage;
+import static fr.maetic.mailing.config.EmailMessageConfig.getEmailMessageUserVerification;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
-public class EmailServiceImpl implements EmailService{
+public class EmailServiceImpl implements EmailService {
 
     public static final String OBJET_MAIL = "Création de votre compte";
     public static final String ENCODING = "UTF-8";
@@ -28,13 +31,13 @@ public class EmailServiceImpl implements EmailService{
 
     @Override
     @Async
-    public void sendSimpleMailMessage(String name, String destinataire, String token) {
+    public void sendSimpleMailMessage(String name, String to, String texte) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setSubject(OBJET_MAIL);
             message.setFrom(expediteur);
-            message.setTo(destinataire);
-            message.setText(getEmailMessage(name, base_url, token));
+            message.setTo(to);
+            message.setText(getEmailMessage(name, base_url, texte));
             javaMailSender.send(message);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -43,8 +46,24 @@ public class EmailServiceImpl implements EmailService{
     }
 
     @Override
+    public void sendSimpleMailMessageUserVerification(String name, String to, String token) {
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setSubject(OBJET_MAIL);
+            message.setFrom(expediteur);
+            message.setTo(to);
+            message.setText(getEmailMessageUserVerification(name, base_url, token));
+
+            javaMailSender.send(message);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    @Override
     @Async
-    public void sendMimeMessageWithAttachment(String name, String destinataire, String token) {
+    public void sendMimeMessageWithAttachment(String name, String to, String token) {
 
         try {
             MimeMessage message = getMimeMessage();
@@ -52,7 +71,7 @@ public class EmailServiceImpl implements EmailService{
             messageHelper.setPriority(1);
             messageHelper.setSubject(OBJET_MAIL);
             messageHelper.setFrom(expediteur);
-            messageHelper.setTo(destinataire);
+            messageHelper.setTo(to);
             messageHelper.setText(getEmailMessage(name, base_url, token));
 
             //Ajouter piece jointe
@@ -119,6 +138,7 @@ public class EmailServiceImpl implements EmailService{
     private MimeMessage getMimeMessage() {
         return javaMailSender.createMimeMessage();
     }
+
     private String getContentId(String nomFichier) {
         return String.format("<{}>", nomFichier);
     }

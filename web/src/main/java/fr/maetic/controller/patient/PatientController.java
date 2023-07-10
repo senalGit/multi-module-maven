@@ -70,7 +70,7 @@ public ResponseEntity<List<Patient>> saveALlEntity(@RequestBody List<Patient> pa
             @RequestParam(defaultValue = "5") Optional<Integer> size) {
         return ResponseEntity.ok()
                 .body(HttpResponse.builder()
-                        .timeStamp(LocalDateTime.now().toString())
+                        .timestamp(LocalDateTime.now().toString())
                         .donnees(
                                 of("page",
                                         patientService.getPagePatients(

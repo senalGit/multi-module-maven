@@ -20,7 +20,8 @@
 		<module>repository</module>
 		<module>web</module>
 		<module>mail</module>
-	</modules>
+        <module>securite</module>
+    </modules>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -37,7 +38,31 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>6.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>6.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>6.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -65,27 +90,32 @@
 		<dependency>
 			<groupId>fr.maetic</groupId>
 			<artifactId>model</artifactId>
-			<version>0.0.1</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>fr.maetic</groupId>
 			<artifactId>repository</artifactId>
-			<version>0.0.1</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>fr.maetic</groupId>
 			<artifactId>service</artifactId>
-			<version>0.0.1</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>fr.maetic</groupId>
 			<artifactId>mail</artifactId>
-			<version>0.0.1</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>fr.maetic</groupId>
 			<artifactId>web</artifactId>
-			<version>0.0.1</version>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.maetic</groupId>
+			<artifactId>securite</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 </dependencyManagement>

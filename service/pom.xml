@@ -15,7 +15,6 @@
     <dependency>
         <groupId>fr.maetic</groupId>
         <artifactId>repository</artifactId>
-        <version>0.0.1</version>
     </dependency>
     <dependency>
         <groupId>fr.maetic</groupId>
@@ -24,6 +23,14 @@
     <dependency>
         <groupId>fr.maetic</groupId>
         <artifactId>mail</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>fr.maetic</groupId>
+        <artifactId>securite</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>fr.maetic</groupId>
+        <artifactId>repository</artifactId>
     </dependency>
 </dependencies>
     <properties>
