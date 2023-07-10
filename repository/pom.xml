@@ -8,7 +8,6 @@
         <artifactId>gestion_patient</artifactId>
         <version>0.0.1</version>
     </parent>
-
     <artifactId>repository</artifactId>
     <packaging>jar</packaging>
 <dependencies>

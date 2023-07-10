@@ -8,27 +8,26 @@
         <artifactId>gestion_patient</artifactId>
         <version>0.0.1</version>
     </parent>
-
     <artifactId>service</artifactId>
     <packaging>jar</packaging>
-<dependencies>
-    <dependency>
-        <groupId>fr.maetic</groupId>
-        <artifactId>model</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>fr.maetic</groupId>
-        <artifactId>mail</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>fr.maetic</groupId>
-        <artifactId>securite</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>fr.maetic</groupId>
-        <artifactId>repository</artifactId>
-    </dependency>
-</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>fr.maetic</groupId>
+            <artifactId>model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.maetic</groupId>
+            <artifactId>mail</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.maetic</groupId>
+            <artifactId>securite</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.maetic</groupId>
+            <artifactId>repository</artifactId>
+        </dependency>
+    </dependencies>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
