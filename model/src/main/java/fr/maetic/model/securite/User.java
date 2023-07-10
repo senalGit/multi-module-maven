@@ -8,6 +8,10 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY;
+import static jakarta.persistence.FetchType.EAGER;
+import static jakarta.persistence.GenerationType.SEQUENCE;
+
 @SuperBuilder
 @Setter
 @ToString
@@ -17,13 +21,13 @@ import lombok.experimental.SuperBuilder;
 @Entity(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_generateur_sequence")
+    @GeneratedValue(strategy = SEQUENCE, generator = "user_generateur_sequence")
     @SequenceGenerator(name = "user_generateur_sequence", sequenceName = "user_sequence", allocationSize = 1)
     @Column(nullable = false)
     private Long id;
     @Column(nullable = false, unique = true, length = 50)
     private String username;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = WRITE_ONLY)
     private String password;
     @Column(unique = true, length = 100)
     private String email;
@@ -31,7 +35,7 @@ public class User {
     private String prenom;
     @Column(length = 50)
     private String nom;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = EAGER)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "roles_id", referencedColumnName = "id"))

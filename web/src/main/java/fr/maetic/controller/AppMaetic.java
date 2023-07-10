@@ -17,7 +17,6 @@ public class AppMaetic {
     public static void main(String[] args) {
         SpringApplication.run(AppMaetic.class, args);
     }
-
     @Bean
     CommandLineRunner envoyerMail(EmailService emailService){
         return args -> {
