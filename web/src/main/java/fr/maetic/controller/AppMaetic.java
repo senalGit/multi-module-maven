@@ -9,8 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import java.util.UUID;
-
 @SpringBootApplication
 @ComponentScan(basePackages = {"fr.maetic.*"})
 @EntityScan(basePackages = {"fr.maetic.*"})

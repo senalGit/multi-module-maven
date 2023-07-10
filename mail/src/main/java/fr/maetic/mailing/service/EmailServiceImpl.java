@@ -140,6 +140,6 @@ public class EmailServiceImpl implements EmailService {
     }
 
     private String getContentId(String nomFichier) {
-        return String.format("<{}>", nomFichier);
+        return String.format("<%s>", nomFichier);
     }
 }

@@ -1,9 +1,5 @@
 package fr.maetic.payload.response;
 
-/**
- * @author sarrenne - Thione SARR
- * @date 03/02/2023 14:37
- */
 import java.util.Set;
 
 public class SignUpRequest {

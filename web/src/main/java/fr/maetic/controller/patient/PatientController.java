@@ -30,7 +30,7 @@ public class PatientController {
 
 @PostMapping("newlist")
 public ResponseEntity<List<Patient>> saveALlEntity(@RequestBody List<Patient> patients ) {
-    return new ResponseEntity<List<Patient>>(patientService.saveAllPatient(patients), HttpStatus.CREATED);
+    return new ResponseEntity<>(patientService.saveAllPatient(patients), HttpStatus.CREATED);
     
 }
 
@@ -55,7 +55,7 @@ public ResponseEntity<List<Patient>> saveALlEntity(@RequestBody List<Patient> pa
     public ResponseEntity<HttpResponse> getAllPatients() {
         return ResponseEntity.ok()
                 .body(HttpResponse.builder()
-                        .timeStamp(LocalDateTime.now().toString())
+                        .timestamp(LocalDateTime.now().toString())
                         .donnees(of("liste", patientService.findAllPatients()))
                         .message("Liste des patients récupérés")
                         .status(OK)
