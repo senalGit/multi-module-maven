@@ -17,8 +17,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -32,8 +30,7 @@ public class AuthenticationService {
     public AuthenticationResponse register(RegisterRequest request) {
         boolean userExist = userRepository.existsByEmailAllIgnoreCase(request.getEmail());
 
-
-        if (!userExist){
+        if (!userExist) {
             var user = User.builder()
                     .prenom(request.getPrenom())
                     .nom(request.getNom())
@@ -44,16 +41,28 @@ public class AuthenticationService {
 
             var savedUser = userRepository.save(user);
             var jwtToken = jwtService.generateToken(user);
-            saveUserToken(savedUser, jwtToken);
-            return AuthenticationResponse
-                    .builder()
-                    .token(jwtToken)
-                    .build();
-        }else {
-log.info("L'utilisateur existe deja");
-        }
 
-        return null;
+            saveUserToken(savedUser, jwtToken);
+            return AuthenticationResponse.builder().token(jwtToken).build();
+        } else {
+            log.info("L'utilisateur existe deja");
+            return null;
+        }
+    }
+    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+
+        UsernamePasswordAuthenticationToken userToAuthenticate = new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword());
+
+        authManager.authenticate(userToAuthenticate);
+
+        var user = userRepository.findByEmail(request.getEmail()).orElseThrow(() -> new UsernameNotFoundException("Could not find user with the specified ID"));
+
+        var jwtToken = jwtService.generateToken(user);
+
+        revokeAllUserTokens(user);
+        saveUserToken(user, jwtToken);
+
+        return AuthenticationResponse.builder().token(jwtToken).build();
     }
     private void revokeAllUserTokens(User user) {
         var validUserTokens = tokenRepository.findAllValidTokensByUser(user.getId());
@@ -76,23 +85,5 @@ log.info("L'utilisateur existe deja");
                 .expired(false)
                 .build();
         tokenRepository.save(token);
-    }
-
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
-        authManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
-                        request.getPassword()
-                )
-        );
-        var user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new UsernameNotFoundException("Could not find user with the specified ID"));
-        var jwtToken = jwtService.generateToken(user);
-        revokeAllUserTokens(user);
-        saveUserToken(user, jwtToken);
-        return AuthenticationResponse
-                .builder()
-                .token(jwtToken)
-                .build();
     }
 }
