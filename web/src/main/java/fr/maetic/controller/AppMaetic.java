@@ -21,7 +21,7 @@ public class AppMaetic {
     CommandLineRunner envoyerMail(EmailService emailService){
         return args -> {
            // emailService.sendSimpleMailMessageUserVerification("SARR", "senalsarr@gmail.com", UUID.randomUUID().toString());
-            emailService.sendSimpleMailMessage("SARR", "senalsarr@gmail.com", "Le service de message generique marche");
+           // emailService.sendSimpleMailMessage("SARR", "senalsarr@gmail.com", "Le service de message generique marche");
         };
     }
 }
