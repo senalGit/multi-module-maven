@@ -18,23 +18,11 @@
 <dependencies>
     <dependency>
         <groupId>fr.maetic</groupId>
-        <artifactId>service</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>fr.maetic</groupId>
-        <artifactId>web</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>fr.maetic</groupId>
         <artifactId>model</artifactId>
     </dependency>
     <dependency>
         <groupId>fr.maetic</groupId>
         <artifactId>repository</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>fr.maetic</groupId>
-        <artifactId>mail</artifactId>
     </dependency>
 </dependencies>
 </project>
