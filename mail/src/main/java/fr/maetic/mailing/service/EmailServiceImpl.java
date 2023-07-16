@@ -88,7 +88,6 @@ public class EmailServiceImpl implements EmailService {
             throw new RuntimeException(e.getMessage());
         }
     }
-
     @Override
     @Async
     public void sendMimeMessageWithEmbeddedImages(String name, String destinataire, String token) {
