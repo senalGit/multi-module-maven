@@ -15,7 +15,6 @@ import java.io.File;
 
 import static fr.maetic.mailing.config.EmailMessageConfig.getEmailMessage;
 import static fr.maetic.mailing.config.EmailMessageConfig.getEmailMessageUserVerification;
-
 @Service
 @Slf4j
 @RequiredArgsConstructor
