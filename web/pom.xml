@@ -11,15 +11,14 @@
     <artifactId>web</artifactId>
     <packaging>jar</packaging>
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>20</maven.compiler.source>
+        <maven.compiler.target>20</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
         <dependency>
             <groupId>fr.maetic</groupId>
             <artifactId>service</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>fr.maetic</groupId>
@@ -28,6 +27,14 @@
         <dependency>
             <groupId>fr.maetic</groupId>
             <artifactId>model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.maetic</groupId>
+            <artifactId>repository</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.maetic</groupId>
+            <artifactId>mail</artifactId>
         </dependency>
     </dependencies>
 </project>

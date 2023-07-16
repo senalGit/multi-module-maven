@@ -13,9 +13,23 @@
 <dependencies>
     <dependency>
         <groupId>fr.maetic</groupId>
+        <artifactId>service</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>fr.maetic</groupId>
+        <artifactId>securite</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>fr.maetic</groupId>
         <artifactId>model</artifactId>
-        <version>0.0.1</version>
-        <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>fr.maetic</groupId>
+        <artifactId>web</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>fr.maetic</groupId>
+        <artifactId>mail</artifactId>
     </dependency>
 </dependencies>
     <properties>
