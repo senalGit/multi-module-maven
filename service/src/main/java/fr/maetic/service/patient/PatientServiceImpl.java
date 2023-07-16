@@ -112,9 +112,9 @@ public class PatientServiceImpl implements PatientService {
 
     @PostConstruct
     public void initPatient() {
-        Patient awa = new Patient(null, "SARR", "Awa", "0769697602", "senal@gmail.com", "rue des meuniers", "Montbert", "44140", "Gynéco", "Nicolas", "Test", "test", "Remi", LocalDate.of(1987, Month.JUNE, 12), false, null, null, LocalDate.of(1987, Month.JUNE, 12));
-        Patient anna = new Patient(null, "SARR", "Anna", "0769697602", "anna@gmail.com", "rue des meuniers", "Montbert", "44140", "Gynéco", "Nicolas", "Test", "test", "Remi", LocalDate.of(1987, Month.JUNE, 12), false, null, null, LocalDate.of(1987, Month.JUNE, 12));
-        patientRepository.saveAll(Stream.of(awa,anna).collect(Collectors.toList()));
+//        Patient awa = new Patient(null, "SARR", "Awa", "0769697602", "senal@gmail.com", "rue des meuniers", "Montbert", "44140", "Gynéco", "Nicolas", "Test", "test", "Remi", LocalDate.of(1987, Month.JUNE, 12), false, null, null, LocalDate.of(1987, Month.JUNE, 12));
+//        Patient anna = new Patient(null, "SARR", "Anna", "0769697602", "anna@gmail.com", "rue des meuniers", "Montbert", "44140", "Gynéco", "Nicolas", "Test", "test", "Remi", LocalDate.of(1987, Month.JUNE, 12), false, null, null, LocalDate.of(1987, Month.JUNE, 12));
+//        patientRepository.saveAll(Stream.of(awa,anna).collect(Collectors.toList()));
     }
     public List<Patient> patientList(){
         return patientRepository.findAll();

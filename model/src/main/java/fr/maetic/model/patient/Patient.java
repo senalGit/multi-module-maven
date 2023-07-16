@@ -11,15 +11,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.GenerationType.IDENTITY;
+
 @ToString
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Patient {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private Long patientId;
 
     @NotEmpty
@@ -48,19 +49,22 @@ public class Patient {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateCreationPatient;
 
-//    @OneToMany(cascade = { CascadeType.ALL }, orphanRemoval = true)
-//    @JoinColumn(name = "patientId", referencedColumnName = "patientId")
-//    @LazyCollection(LazyCollectionOption.FALSE)
-//    private List<Suivi> suivis = new ArrayList<>();
-//
-//    @OneToMany(cascade = { CascadeType.ALL }, orphanRemoval = true)
-//    @JoinColumn(name = "patientId", referencedColumnName = "patientId")
-//    @LazyCollection(LazyCollectionOption.FALSE)
-//    private List<Antecedent> antecedents = new ArrayList<>();
-//
-//    @OneToMany(cascade = { CascadeType.ALL })
-//    @JoinColumn(name = "patientId", referencedColumnName = "patientId")
-//    @LazyCollection(LazyCollectionOption.FALSE)
-//    private List<InformationMedicale> informationMedicales;
+    @OneToMany(cascade = { CascadeType.ALL }, orphanRemoval = true)
+    @JoinColumn(name = "patientId", referencedColumnName = "patientId")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @ToString.Exclude
+    private List<Suivi> suivis = new ArrayList<>();
+
+    @OneToMany(cascade = { CascadeType.ALL }, orphanRemoval = true)
+    @JoinColumn(name = "patientId", referencedColumnName = "patientId")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @ToString.Exclude
+    private List<Antecedent> antecedents = new ArrayList<>();
+
+    @OneToMany(cascade = { CascadeType.ALL })
+    @JoinColumn(name = "patientId", referencedColumnName = "patientId")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @ToString.Exclude
+    private List<InformationMedicale> informationMedicales;
 
 }
