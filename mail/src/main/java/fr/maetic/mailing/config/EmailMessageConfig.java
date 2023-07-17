@@ -2,7 +2,7 @@ package fr.maetic.mailing.config;
 
 public class EmailMessageConfig {
     public static String getEmailMessage(String texte) {
-        return String.format("Bonjour %s\n\n%s", texte);
+        return String.format("%s", texte);
     }
 
     public static String getEmailMessageUserVerification(String name,

@@ -1,8 +1,6 @@
 package fr.maetic.service;
 
 import fr.maetic.model.User;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
