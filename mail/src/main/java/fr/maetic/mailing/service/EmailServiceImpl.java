@@ -45,6 +45,7 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
+    @Async
     public void sendSimpleMailMessageUserVerification(String name, String to, String token) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();

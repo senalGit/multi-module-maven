@@ -17,4 +17,5 @@ public class RegisterRequest {
     private String email;
     private String password;
     private List<Role> roles;
+    private boolean isEnable;
 }

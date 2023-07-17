@@ -10,6 +10,6 @@ public class EmailMessageConfig {
     }
 
     private static String getVerificationUrl(String host, String token) {
-        return String.format("%s/api/users?token=%s", host, token);
+        return String.format("%s/api/auth?token=%s", host, token);
     }
 }
