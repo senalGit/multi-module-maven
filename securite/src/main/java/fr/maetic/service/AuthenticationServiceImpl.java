@@ -34,6 +34,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final AuthenticationManager authManager;
     private final ConfirmationRepository confirmationRepository;
     private final EmailService emailService;
+
 @Override
     public AuthenticationResponse register(@NotNull RegisterRequest request) {
         boolean userExist = userRepository.existsByEmailAllIgnoreCase(request.getEmail());
@@ -59,7 +60,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         confirmationRepository.save(confirmation);
 
         emailService.sendSimpleMailMessageUserVerification(user.getNom(), user.getEmail(), confirmation.getToken());
-
         return AuthenticationResponse.builder().token(jwtToken).build();
 
     }
@@ -71,7 +71,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         authManager.authenticate(userToAuthenticate);
 
-        var user = userRepository.findByEmail(request.getEmail()).orElseThrow(() -> new UsernameNotFoundException("Could not find user with the specified ID"));
+        var user = userRepository.findUserByEmail(request.getEmail()).orElseThrow(() -> new UsernameNotFoundException("Could not find user with the specified ID"));
 
         var jwtToken = jwtService.generateToken(user);
 
@@ -116,9 +116,5 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         //confirmationRepository.delete(confirmation);
 
         return Boolean.TRUE;
-    }
-@Override
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
     }
 }

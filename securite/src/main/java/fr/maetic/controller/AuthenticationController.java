@@ -51,18 +51,5 @@ public class AuthenticationController {
     }
 
 
-    @GetMapping("/list")
-    public ResponseEntity<HttpResponse> list(){
-        return ResponseEntity.ok()
-                .body(
-                        HttpResponse
-                                .builder()
-                                .timestamp(LocalDateTime.now().toString())
-                                .donnees(Map.of("Liste", authenticationService.findAllUsers()))
-                                .message("Liste des utilisateurs")
-                                .status(HttpStatus.OK)
-                                .statusCode(HttpStatus.OK.value())
-                                .build()
-                );
-    }
+
 }

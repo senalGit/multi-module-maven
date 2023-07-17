@@ -10,5 +10,4 @@ public interface AuthenticationService {
 
     Boolean verifierTokenCreationCompte(String token);
 
-    Object findAllUsers();
 }
