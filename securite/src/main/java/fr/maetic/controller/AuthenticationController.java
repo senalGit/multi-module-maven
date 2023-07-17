@@ -5,7 +5,6 @@ import fr.maetic.model.dto.AuthenticationRequest;
 import fr.maetic.model.dto.AuthenticationResponse;
 import fr.maetic.model.dto.RegisterRequest;
 import fr.maetic.service.AuthenticationService;
-import fr.maetic.service.AuthenticationServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -29,7 +28,7 @@ public class AuthenticationController {
         return ResponseEntity.ok(authenticationService.register(request));
     }
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> register(
+    public ResponseEntity<AuthenticationResponse> authentifier(
             @RequestBody AuthenticationRequest request
     ) {
         log.info("Authentification de : " + request.getEmail());
